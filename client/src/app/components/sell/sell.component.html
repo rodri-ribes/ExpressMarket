@@ -1,0 +1,100 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formCreateProduct" class="container__form">
+        <div class="container__form_group">
+            <mat-form-field>
+                <input type="text" matInput placeholder="Title" name="title" formControlName="title">
+            </mat-form-field>
+            <p *ngIf="formCreateProduct.get('title')?.touched && formCreateProduct.get('title')?.errors?.['required']">
+                Title
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <mat-form-field>
+                <input matInput placeholder="Content" type="text" name="content" formControlName="content">
+            </mat-form-field>
+            <p
+                *ngIf="formCreateProduct.get('content')?.touched && formCreateProduct.get('content')?.errors?.['required']">
+                Content
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <mat-select name="isNewProduct" formControlName="isNewProduct" placeholder="Is the product new?" required>
+                <mat-option value="Yes">Yes</mat-option>
+                <mat-option value="Not">Not</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('isNewProduct')?.touched && formCreateProduct.get('isNewProduct')?.errors?.['required']">
+                Select an option
+            </p>
+        </div>
+        <div class="container__form_group">
+            <div class="container__form_group_typeFile">
+                <input type="file" accept=".png, .jpg" name="image" formControlName="image" #selectImage />
+                <p>{{formCreateProduct.get('image')?.value ? "LOADED" : "ADD IMAGE"}}</p>
+            </div>
+            <p
+                *ngIf="formCreateProduct.get('image')?.value.length !== 0 && formCreateProduct.get('image')?.touched && formCreateProduct.get('image')?.errors?.['required']">
+                Image
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <mat-form-field>
+                <input matInput placeholder="Price" type="number" name="price" formControlName="price">
+            </mat-form-field>
+            <p *ngIf="formCreateProduct.get('price')?.touched && formCreateProduct.get('price')?.errors?.['required']">
+                Price
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <mat-form-field>
+                <input matInput placeholder="Stock" type="number" name="stock" formControlName="stock">
+            </mat-form-field>
+            <p *ngIf="formCreateProduct.get('stock')?.touched && formCreateProduct.get('stock')?.errors?.['required']">
+                stock
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <mat-select name="category" formControlName="category" placeholder="Select a Category" required
+                (selectionChange)="categorySelect = $event.value">
+                <mat-option value="Vehicles">Vehicles</mat-option>
+                <mat-option value="Fashion">Fashion</mat-option>
+                <mat-option value="Technology">Technology</mat-option>
+                <mat-option value="Estate">Estate</mat-option>
+                <mat-option value="Home">Home, Furniture and Garden</mat-option>
+                <mat-option value="Tools">Tools</mat-option>
+                <mat-option value="SportAndFitness">Sports and Fitness</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('category')?.touched && formCreateProduct.get('category')?.errors?.['required']">
+                Category
+                is required
+            </p>
+        </div>
+
+        <app-extra-data [categorySelect]="categorySelect" [formCreateProduct]="formCreateProduct"
+            *ngIf="categorySelect.length > 0">
+        </app-extra-data>
+
+        <p *ngIf="categorySelect && noRepeat()">Duplicate data is not supported</p>
+
+        <div class="container__form_button">
+            <button type="submit" [disabled]="noRepeat()" *ngIf="!loading">Publish Product</button>
+            <div class="lds-ellipsis" *ngIf="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- <p *ngIf="error.visible" [ngClass]="{'error': error.error !== false, 'success': error.error === false}">
+            {{error.error !== true ? "Product published successfully" : "There was a mistake"}}</p> -->
+        <p class="notification">
+            {{error.message}}</p>
+    </form>
+
+</div>

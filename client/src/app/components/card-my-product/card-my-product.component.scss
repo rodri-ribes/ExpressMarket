@@ -1,0 +1,81 @@
+.containerMyProduct{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+    // outline: 1px solid blue;
+    margin: 1rem auto;
+    background-color: #0295c6;
+    padding: 0.5rem;
+    border-radius: 2px;
+
+    .containerMyProduct__image{
+        width: 20%;
+        // outline: 1px solid yellow;
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .containerMyProduct__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 65%;
+
+        h3{
+            font-family: lucida sans;
+            font-size: 1.2rem;
+        }
+
+        p{
+            width: 100%;
+            font-family: sans-serif;
+        }
+
+        .containerMyProduct__content__data{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            // outline: 1px solid yellow;
+
+            .containerMyProduct__content__data_group{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                mat-icon{
+                    font-size: 1.2rem;
+                    margin: auto 0;
+                }
+
+                p{
+                    margin: auto 0;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .containerMyProduct__delete{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5%;
+        height: 30px;
+        // outline: 1px solid green;
+
+        mat-icon{
+            font-size: 1.8rem;
+            transition: transform 1s ease-in-out;
+            &:hover{
+                transform: scale(1.2);
+                
+            }
+        }
+    }
+}

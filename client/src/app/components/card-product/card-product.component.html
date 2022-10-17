@@ -1,0 +1,13 @@
+<div class="containerProduct">
+    <div class="containerProduct__image">
+        <div class="containerProduct__image_svg">
+        </div>
+        <img src="{{product.image}}" alt="{{product.title}}">
+    </div>
+    <div class="containerProduct__content">
+        <p class="containerProduct__content_price">$ {{product.price}}</p>
+        <p class="containerProduct__content_title">{{product.title}}</p>
+        <p *ngIf="product.category === 'Vehicles' && product.datos.year !== null && product.datos.kilometres !== null"
+            class="containerProduct__content_extra">{{product.datos.year}} | {{product.datos.kilometres}} Km</p>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <img src='./assets/img/coffe.jpg' alt='coffe' />
+    <form (ngSubmit)="onSubmit()" [formGroup]="formSignUp" class="container__form">
+        <div class="container__form_group">
+            <label>Username Or Email</label>
+            <input type="text" name="usernameOrEmail" formControlName="usernameOrEmail">
+            <p
+                *ngIf="formSignUp.get('usernameOrEmail')?.touched && formSignUp.get('usernameOrEmail')?.errors?.['required']">
+                Username or Email
+                is required
+            </p>
+        </div>
+        <div class="container__form_group">
+            <label>Password</label>
+            <input type="password" name="password" formControlName="password">
+            <p *ngIf="formSignUp.get('username')?.touched && formSignUp.get('username')?.errors?.['required']">Password
+                is required
+            </p>
+        </div>
+        <div class="container__form_button">
+            <button type="submit" [disabled]="formSignUp.invalid">SignIn</button>
+            <p>You do not have an account? <a routerLink="/signup">Sign up</a></p>
+        </div>
+        <p *ngIf="error.visible" [ngClass]="{'error': error.error !== false, 'success': error.error === false}">
+            {{error.message}}</p>
+    </form>
+</div>

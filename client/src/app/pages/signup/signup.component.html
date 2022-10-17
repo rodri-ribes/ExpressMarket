@@ -1,0 +1,55 @@
+<div class="container">
+    <img src='./assets/img/coffe.jpg' alt='coffe' />
+    <form (ngSubmit)="onSubmit()" [formGroup]="formSignUp" class="container__form">
+        <div class="container__form_group">
+            <label>Username</label>
+            <input type="text" name="username" formControlName="username">
+            <p *ngIf="formSignUp.get('username')?.touched && formSignUp.get('username')?.errors?.['required']">Username
+                is required
+            </p>
+            <p *ngIf="formSignUp.get('username')?.touched && formSignUp.get('username')?.errors?.['minlength']">It must
+                have a minimum of 6 characters
+            </p>
+            <p *ngIf="formSignUp.get('username')?.touched && formSignUp.get('username')?.errors?.['pattern']">Username
+                is invalid
+            </p>
+        </div>
+        <div class="container__form_group">
+            <label>Email</label>
+            <input type="email" name="email" formControlName="email">
+            <p *ngIf="formSignUp.get('email')?.touched && formSignUp.get('email')?.errors?.['required']">Email is
+                required
+            </p>
+            <p *ngIf="formSignUp.get('email')?.touched && formSignUp.get('email')?.errors?.['pattern']">Email is invalid
+            </p>
+        </div>
+        <div class="container__form_group">
+            <label>Password</label>
+            <input type="password" name="password" formControlName="password">
+            <p *ngIf="formSignUp.get('password')?.touched && formSignUp.get('password')?.errors?.['required']">Password
+                is required
+            </p>
+            <p *ngIf="formSignUp.get('password')?.touched && formSignUp.get('password')?.errors?.['minlength']">It must
+                have a minimum of 6 characters</p>
+        </div>
+        <div class="container__form_group">
+            <label>Confirm Password</label>
+            <input type="password" name="passwordConfirm" formControlName="passwordConfirm">
+            <p
+                *ngIf="formSignUp.get('passwordConfirm')?.touched && formSignUp.get('passwordConfirm')?.errors?.['required']">
+                Password
+                is required
+            </p>
+            <p *ngIf="checarSiSonIguales()">
+                Las contraseñas no coinciden
+            </p>
+        </div>
+        <div class="container__form_button">
+            <button type="submit" [disabled]="formSignUp.invalid">SignUp</button>
+            <p>You already have an account? <a routerLink="/signin">Sign In</a></p>
+        </div>
+        <!-- <p>Valores {{formSignUp | json}}</p> -->
+        <p *ngIf="error.visible" [ngClass]="{'error': error.error !== false, 'success': error.error === false}">
+            {{error.message}}</p>
+    </form>
+</div>

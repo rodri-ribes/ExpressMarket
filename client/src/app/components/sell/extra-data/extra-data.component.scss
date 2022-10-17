@@ -1,0 +1,42 @@
+h3{
+    text-align: center;
+}
+
+.container__form__details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    .container__form_group{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin-bottom: 1rem;
+    
+        label{
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        input{
+            width: 100%;
+            padding: 5px 10px;
+            outline: none;
+
+        }
+        
+        select{
+            outline: none;
+            padding: 5px 10px;
+            width: 120px;
+        }
+
+        p{
+            color: red;
+            margin-top: 0.5rem;
+        }
+    }
+}

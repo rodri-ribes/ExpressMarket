@@ -1,0 +1,31 @@
+<div class="container_profile">
+    <div class="container__panel">
+        <a class="container__panel_group" [routerLink]="['/profile/settings']" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon>manage_accounts</mat-icon>
+            <p>Profile settings</p>
+        </a>
+        <a class="container__panel_group" [routerLink]="['/profile/questions']" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon>mode_comment</mat-icon>
+            <p>Questions</p>
+        </a>
+        <a class="container__panel_group" [routerLink]="['/profile/sell']" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon>sell</mat-icon>
+            <p>Sell</p>
+        </a>
+        <a class="container__panel_group" [routerLink]="['/profile/my-products']" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon>list_alt</mat-icon>
+            <p>My Products</p>
+        </a>
+    </div>
+    <div class="container__view">
+        <router-outlet></router-outlet>
+    </div>
+</div>

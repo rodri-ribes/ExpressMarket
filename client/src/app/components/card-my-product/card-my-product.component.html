@@ -1,0 +1,32 @@
+<div class="containerMyProduct">
+
+    <div class="containerMyProduct__image">
+        <img src="{{product.image}}" alt="{{product.title}}">
+    </div>
+    <div class="containerMyProduct__content">
+        <h3>{{product.title}}</h3>
+        <p>{{product.content.slice(0, 50)}} {{product.content.length > 50 ? "..." : null}}</p>
+        <div class="containerMyProduct__content__data">
+            <div class="containerMyProduct__content__data_group">
+                <mat-icon>comment</mat-icon>
+                <p>Comments: <b>10</b></p>
+            </div>
+            <div class="containerMyProduct__content__data_group">
+                <mat-icon>rate_review</mat-icon>
+                <p>Reviews: <b>15</b></p>
+            </div>
+            <div class="containerMyProduct__content__data_group">
+                <mat-icon>inventory</mat-icon>
+                <p>Stock: <b>5</b></p>
+            </div>
+            <div class="containerMyProduct__content__data_group">
+                <mat-icon>local_mall</mat-icon>
+                <p>Sales: <b>5</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="containerMyProduct__delete">
+        <mat-icon (click)="deleteMyProduct(product._id)">delete</mat-icon>
+    </div>
+
+</div>

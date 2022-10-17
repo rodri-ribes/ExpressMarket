@@ -1,0 +1,4 @@
+<div class="containerMyProducts">
+    <app-card-my-product (productDelete)="deleteMyProduct($event)" [product]="product"
+        *ngFor="let product of myProducts"></app-card-my-product>
+</div>

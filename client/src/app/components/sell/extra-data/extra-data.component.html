@@ -1,0 +1,98 @@
+<h3>Additional Information</h3>
+<form [formGroup]="formCreateProduct" class="container__form">
+    <div class="container__form__details">
+        <div class="container__form_group">
+            <mat-select name="datoSelectOne" placeholder="Select a data"
+                (selectionChange)="typeSelect[0] = $event.value.split(',')[1]" formControlName="datoSelectOne" required>
+                <mat-option value={{item.dato}} *ngFor="let item of datosFilter">
+                    {{item.dato[0].charAt(0).toUpperCase()
+                    +
+                    item.dato[0].slice(1)}}</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('datoSelectOne')?.touched && formCreateProduct.get('datoSelectOne')?.errors?.['required']">
+                Select a product data
+            </p>
+        </div>
+        <div class="container__form_group">
+            <input type="{{typeSelect[0]}}" name="datoTextOne" formControlName="datoTextOne" required>
+            <p
+                *ngIf="formCreateProduct.get('datoTextOne')?.touched && formCreateProduct.get('datoTextOne')?.errors?.['required']">
+                Description
+                is required
+            </p>
+        </div>
+    </div>
+    <div class="container__form__details">
+        <div class="container__form_group">
+            <mat-select name="datoSelectTwo" placeholder="Select a data"
+                (selectionChange)="typeSelect[1] = $event.value.split(',')[1]" formControlName="datoSelectTwo" required>
+                <mat-option value={{item.dato}} *ngFor="let item of datosFilter">
+                    {{item.dato[0].charAt(0).toUpperCase()
+                    +
+                    item.dato[0].slice(1)}}</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('datoSelectTwo')?.touched && formCreateProduct.get('datoSelectTwo')?.errors?.['required']">
+                Select a product data
+            </p>
+        </div>
+        <div class="container__form_group">
+            <input type="{{typeSelect[1] }}" name="datoTextTwo" formControlName="datoTextTwo" required>
+            <p
+                *ngIf="formCreateProduct.get('datoTextTwo')?.touched && formCreateProduct.get('datoTextTwo')?.errors?.['required']">
+                Description
+                is required
+            </p>
+        </div>
+    </div>
+    <div class="container__form__details">
+        <div class="container__form_group">
+            <mat-select name="datoSelectThree" placeholder="Select a data"
+                (selectionChange)="typeSelect[2] = $event.value.split(',')[1]" formControlName="datoSelectThree"
+                required>
+                <mat-option value={{item.dato}} *ngFor="let item of datosFilter">
+                    {{item.dato[0].charAt(0).toUpperCase()
+                    +
+                    item.dato[0].slice(1)}}</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('datoSelectThree')?.touched && formCreateProduct.get('datoSelectThree')?.errors?.['required']">
+                Select a product data
+            </p>
+        </div>
+        <div class="container__form_group">
+            <input type="{{typeSelect[2]}}" name="datoTextThree" formControlName="datoTextThree" required>
+            <p
+                *ngIf="formCreateProduct.get('datoTextThree')?.touched && formCreateProduct.get('datoTextThree')?.errors?.['required']">
+                Description
+                is required
+            </p>
+        </div>
+    </div>
+    <div class="container__form__details">
+        <div class="container__form_group">
+            <mat-select name="datoSelectFour" placeholder="Select a data"
+                (selectionChange)="typeSelect[2] = $event.value.split(',')[1]" formControlName="datoSelectFour"
+                required>
+                <mat-option value={{item.dato}} *ngFor="let item of datosFilter">
+                    {{item.dato[0].charAt(0).toUpperCase()
+                    +
+                    item.dato[0].slice(1)}}</mat-option>
+            </mat-select>
+            <p
+                *ngIf="formCreateProduct.get('datoSelectFour')?.touched && formCreateProduct.get('datoSelectFour')?.errors?.['required']">
+                Select a product data
+            </p>
+        </div>
+        <div class="container__form_group">
+            <input type="{{typeSelect[2]}}" name="datoTextFour" formControlName="datoTextFour" required>
+            <p
+                *ngIf="formCreateProduct.get('datoTextFour')?.touched && formCreateProduct.get('datoTextFour')?.errors?.['required']">
+                Description
+                is required
+            </p>
+        </div>
+    </div>
+
+</form>

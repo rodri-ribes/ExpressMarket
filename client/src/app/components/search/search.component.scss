@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    .container__relative{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        width: auto;
+    }
+    
+    mat-icon{
+        margin: auto 0.5rem;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+    }
+    input{
+        padding: 8px 35px 8px 10px;
+        width: 350px;
+        border-radius: 2px;
+        border: none;
+        outline: none;
+    }
+}
+
+@media screen and (max-width: 968px){
+    .container{
+        width: 100%;
+        .container__relative{
+            width: 260px;
+            input{
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+<div class="container_nav">
+    <div class="container__buttons" (click)="onClick()">
+        <mat-icon class="svg" *ngIf="open === false">menu</mat-icon>
+        <mat-icon class="svg" *ngIf="open === true">close</mat-icon>
+    </div>
+    <div class="container__logo">
+        <a routerLink="/">Express Market</a>
+    </div>
+    <div class="container__search">
+        <app-search></app-search>
+    </div>
+    <div [ngStyle]="{'left': open ? '0' : '-100%'}" class="container__responsive__items">
+        <div class="container__svgPerson" *ngIf="user">
+            <mat-icon class="svgPerson">person</mat-icon>
+            <a href="#">Rodrigo</a>
+            <mat-icon class="svgExpan">expand_more</mat-icon>
+        </div>
+        <div class="menu__user">
+            <div class="menu__user__data" *ngIf="user">
+                <img src="./assets/img/upload.jpg" alt="user" />
+                <div class="menu__user__data_info">
+                    <h3>Hello, Rodrigo</h3>
+                    <p>Cash: <b>$ 999</b></p>
+                </div>
+            </div>
+            <hr *ngIf="user" />
+            <div class="menu__user__options">
+                <div *ngIf="user">
+                    <mat-icon class="svg">question_answer</mat-icon>
+                    <a href="#">Questions</a>
+                </div>
+                <div *ngIf="user">
+                    <mat-icon class="svg">sell</mat-icon>
+                    <a href="#">Sell</a>
+                </div>
+                <div *ngIf="user">
+                    <mat-icon class="svg">person</mat-icon>
+                    <a routerLink="/profile">My Perfil</a>
+                </div>
+                <div class="ocultar__menu_pc" *ngIf="user || !user">
+                    <mat-icon class="svg">shopping_bag</mat-icon>
+                    <a href="#">My shopping</a>
+                </div>
+                <div class="ocultar__menu_pc" *ngIf="user">
+                    <mat-icon class="svg">favorite</mat-icon>
+                    <a href="#">Favorites</a>
+                </div>
+                <div *ngIf="user">
+                    <mat-icon class="svg">logout</mat-icon>
+                    <a (click)="OnLogout()">Logout</a>
+                </div>
+                <div *ngIf="!user" class="ocultar__menu_pc">
+                    <mat-icon class="svg">shopping_bag</mat-icon>
+                    <a routerLink="/signin">Sign In</a>
+                </div>
+                <div *ngIf="!user" class="ocultar__menu_pc">
+                    <mat-icon class="svg">shopping_bag</mat-icon>
+                    <a routerLink="/signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!user" class="ocultar__menu">
+            <mat-icon class="svg">signin</mat-icon>
+            <a routerLink="/signin">Sign In</a>
+        </div>
+        <div *ngIf="!user" class="ocultar__menu">
+            <mat-icon class="svg">signup</mat-icon>
+            <a routerLink="/signup">Sign Up</a>
+        </div>
+        <div class="ocultar__menu" *ngIf="user || !user">
+            <mat-icon class="svg">all_inbox</mat-icon>
+            <a href="#">My shopping</a>
+        </div>
+        <div class="ocultar__menu" *ngIf="user">
+            <mat-icon class="svg">favorite</mat-icon>
+            <a href="#">Favorites</a>
+        </div>
+    </div>
+    <div class="container__cart">
+        <mat-icon class="svg">shopping_cart</mat-icon>
+    </div>
+</div>

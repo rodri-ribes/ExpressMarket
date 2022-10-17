@@ -1,0 +1,249 @@
+@import '../../colors.scss';
+
+.container{
+    display: flex;
+    width: 720px;
+    justify-content: center;
+    align-items: center;
+
+    .container__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        margin: 1rem auto;
+
+        .notification{
+            color: blue;
+            margin-top: 0.5rem;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+
+
+        .container__form_button{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 80%;
+            margin-top: 1rem;
+
+            .lds-ellipsis {
+                display: inline-block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+              }
+              .lds-ellipsis div {
+                position: absolute;
+                top: 33px;
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background: black;
+                animation-timing-function: cubic-bezier(0, 1, 1, 0);
+              }
+              .lds-ellipsis div:nth-child(1) {
+                left: 8px;
+                animation: lds-ellipsis1 0.6s infinite;
+              }
+              .lds-ellipsis div:nth-child(2) {
+                left: 8px;
+                animation: lds-ellipsis2 0.6s infinite;
+              }
+              .lds-ellipsis div:nth-child(3) {
+                left: 32px;
+                animation: lds-ellipsis2 0.6s infinite;
+              }
+              .lds-ellipsis div:nth-child(4) {
+                left: 56px;
+                animation: lds-ellipsis3 0.6s infinite;
+              }
+              @keyframes lds-ellipsis1 {
+                0% {
+                  transform: scale(0);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              @keyframes lds-ellipsis3 {
+                0% {
+                  transform: scale(1);
+                }
+                100% {
+                  transform: scale(0);
+                }
+              }
+              @keyframes lds-ellipsis2 {
+                0% {
+                  transform: translate(0, 0);
+                }
+                100% {
+                  transform: translate(24px, 0);
+                }
+              }
+
+
+            button{
+                padding: 8px 15px;
+                border: none;
+                border-radius: 2px;
+                background-color: rgb(0, 160, 0);
+                color: black;
+                font-family: arial;
+                transition: all 1s, transform 500ms;
+                cursor: pointer;
+                font-weight: 600;
+                
+                
+
+                &:hover{
+                    background-color: green;
+                    color: white;
+                    box-shadow: 0px 0px 5px black;
+                    // transform: translateY(-3px);
+                }
+                
+                &:active{
+                    transform: scale(1.1);
+                }
+                
+                &:disabled{
+                    background-color: rgb(216, 216, 216);
+                    color: black;
+                    box-shadow: none;
+                    transform: none;
+                    cursor: default;
+                    
+                }
+            }    
+        }
+
+        app-extra-data{
+            width: 100%;
+        }
+
+        .container__form_group{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin-bottom: 1rem;
+            
+            label{
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            input{
+                width: 100%;
+                padding: 5px 10px;
+                outline: none;
+            }
+            
+            select{
+                padding: 5px 10px;
+
+            }
+
+            button{
+                width: 150px;
+                margin: 0 auto;
+                padding: 8px 10px;
+                border-radius: 3px;
+                border: none;
+                cursor: pointer;
+                background-color: #00A8E8;
+                transition: all 1s;
+                font-weight: 600;
+            }
+            
+            button:hover{
+                background-color: #0089c0
+            }
+
+            p{
+                color: red;
+                font-weight: 600;
+                font-family: lucida sans;
+            }
+
+            .container__form_group_typeFile{
+                position: relative;
+                width: 100px;
+                border-radius: 3px;
+                height: 30px;
+                background-color: white;
+                padding: 3px 8px;
+                border: 1px solid black;
+                transition: all 1s;
+                cursor: pointer;
+
+                input{
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                p{
+                    text-align: center;
+                    font-weight: 600;
+                    cursor: pointer;
+                    margin: auto;
+                    font-size: 13px;
+                    color: blue;
+                }
+                &:hover{
+                    background-color: black;
+                    p{
+                        color: white;
+                    }
+                }
+
+           
+            }
+            
+        }
+
+
+
+        .container__form__details{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 80%;
+            .container__form_group{
+                display: flex;
+                flex-direction: column;
+                width: 40%;
+                margin-bottom: 1rem;
+            
+                label{
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                input{
+                    width: 100%;
+                    padding: 5px 10px;
+                    outline: none;
+
+                }
+                
+                select{
+                    outline: none;
+                    padding: 5px 10px;
+                    width: 120px;
+                }
+
+                p{
+                    color: red;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+}
